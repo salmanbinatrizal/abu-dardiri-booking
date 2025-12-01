@@ -2412,6 +2412,11 @@ section,
   margin-top: 0.25rem;
 }
 
+.icon-masjid {
+  position: relative;
+  top: 8px;
+}
+
 .location .location-content .transportation-info .transport-grid .transport-item .details strong {
   display: block;
   margin-bottom: 0.5rem;
