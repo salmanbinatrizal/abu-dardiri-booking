@@ -7,9 +7,22 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root {
+    --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+    --default-color: #352a26; /* Default color used for the majority of the text content across the entire website */
+    --heading-color: #291812; /* Color for headings, subheadings and title throughout the website */
+    --accent-color: #f68f28; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+    --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+    --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
 body {
     background-color: #c9d6ff;
-    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    background: linear-gradient(to right, #e2e2e2, #FEEAC9);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,7 +38,44 @@ body {
     overflow: hidden;
     width: 768px;
     max-width: 100%;
-    min-height: 480px;
+    min-height: 720px;
+}
+
+.container h1 {
+    text-align: center;
+    width: 350px;
+    margin: 0 0 20px 0;
+}
+
+.container h2 {
+    font-size: 18px;
+    margin: 0 0 20px 0;
+}
+
+.container label {
+    font-size: 12px;;
+}
+
+.container textarea {
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+}
+
+.container select {
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
 }
 
 .container p {
@@ -33,10 +83,6 @@ body {
     line-height: 20px;
     letter-spacing: 0.3px;
     margin: 20px 0;
-}
-
-.container span {
-    font-size: 12px;
 }
 
 .container a {
@@ -47,10 +93,11 @@ body {
 }
 
 .container button {
-    background-color: #512da8;
+    background-color: var(--accent-color);
     color: #fff;
     font-size: 12px;
-    padding: 10px 45px;
+    width: 140px;
+    padding: 10px 10px;
     border: 1px solid transparent;
     border-radius: 8px;
     font-weight: 600;
@@ -60,7 +107,9 @@ body {
     cursor: pointer;
 }
 
-.container button.hidden {
+.container .toggle-container button.hidden {
+    width: 250px;
+    padding: 10px 10px;
     background-color: transparent;
     border-color: #fff;
 }
@@ -159,15 +208,19 @@ body {
     z-index: 1000;
 }
 
+.toggle-container p {
+    margin-top: 0;
+}
+
 .container.active .toggle-container {
     transform: translateX(-100%);
     border-radius: 0 150px 100px 0;
 }
 
 .toggle {
-    background-color: #512da8;
+    background-color: var(--accent-color);
     height: 100%;
-    background: linear-gradient(to right, #5c6bc0, #512da8);
+    background: linear-gradient(to right, #f68f28, #eb5f2d);
     color: #fff;
     position: relative;
     left: -100%;
@@ -211,4 +264,73 @@ body {
 
 .container.active .toggle-right {
     transform: translateX(200%);
+}
+
+/* --- MULTI STEP FORM --- */
+.form-step {
+    display: none;
+    width: 100%;
+}
+
+.form-step.active {
+    display: block;
+}
+
+/* Tombol navigasi langkah */
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Tampilan tombol submit ketika belum bisa dipakai */
+.container button:disabled {
+    background-color: #aaa;
+    border-color: #aaa;
+    cursor: not-allowed;
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    overflow: hidden;
+    background: #ffffff;
+    transition: all 0.6s ease-out;
+}
+
+#preloader:before {
+    content: "";
+    position: fixed;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    border: 6px solid #ffffff;
+    border-color: #f68f28 transparent var(--accent-color) transparent;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: animate-preloader 1.5s linear infinite;
+}
+
+@keyframes animate-preloader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+    [data-aos-delay] {
+        transition-delay: 0 !important;
+    }
 }

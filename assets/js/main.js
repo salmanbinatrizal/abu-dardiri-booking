@@ -1,9 +1,8 @@
 /**
-* Template Name: Savora
-* Template URL: https://bootstrapmade.com/savora-bootstrap-restaurant-template/
-* Updated: Jul 29 2025 with Bootstrap v5.3.7
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+* Project: Sistem Peminjaman Aula Abu Dardiri
+* Description: Frontend interactions (nav, preloader, calendar, etc.)
+* Author: [Salman Alfarisi/2203040144]
+* Year: 2025
 */
 
 (function() {
@@ -64,9 +63,17 @@
    * Preloader
    */
   const preloader = document.querySelector('#preloader');
+  const MIN_PRELOAD = 250; // minimal 250 ms
+  const startTime = Date.now();
+
   if (preloader) {
     window.addEventListener('load', () => {
-      preloader.remove();
+      const elapsed   = Date.now() - startTime;
+      const remaining = Math.max(0, MIN_PRELOAD - elapsed);
+
+      setTimeout(() => {
+        preloader.remove();
+      }, remaining);
     });
   }
 
@@ -137,7 +144,7 @@
           filter: this.getAttribute('data-filter')
         });
         if (typeof aosInit === 'function') {
-          aosInit();
+          aosInit();  
         }
       }, false);
     });
@@ -191,20 +198,19 @@ const datesElement = document.getElementById('dates');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
-let currenDate = new Date();
+let currentDate = new Date();
 
 const UpdateCalendar = () => {
-  const currentYear = currenDate.getFullYear();
-  const currentMonth = currenDate.getMonth();
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth();
 
-  const firstDay = new Date(currentYear. currentMonth, 0);
+  const firstDay = new Date(currentYear, currentMonth, 1);
   const lastDay = new Date(currentYear, currentMonth + 1, 0);
   const totalDays = lastDay.getDate();
   const firstDayIndex = firstDay.getDay();
   const lastDayIndex = lastDay.getDay();
 
-  const monthYearString = currenDate.toLocaleString
-  ('default', {month: 'long', year: 'numeric'});
+  const monthYearString = currentDate.toLocaleString('default', {month: 'long', year: 'numeric'});
   MonthYearElement.textContent = monthYearString;
 
   let datesHTML = '';
@@ -220,7 +226,7 @@ const UpdateCalendar = () => {
     datesHTML += `<div class="date ${activeClass}">${i}</div>`;
   }
 
-  for (let i = 1; i <= 7 - lastDayIndex; i++) {
+  for (let i = 1; i <= 6 - lastDayIndex; i++) {
     const nextDate = new Date(currentYear, currentMonth + 1, i);
     datesHTML += `<div class="date inactive">${nextDate.getDate()}</div>`;
   }
@@ -229,12 +235,12 @@ const UpdateCalendar = () => {
 }
 
 prevBtn.addEventListener('click', () => {
-  currenDate.setMonth(currenDate.getMonth() - 1);
+  currentDate.setMonth(currentDate.getMonth() - 1);
   UpdateCalendar();
 })
 
 nextBtn.addEventListener('click', () => {
-  currenDate.setMonth(currenDate.getMonth() + 1);
+  currentDate.setMonth(currentDate.getMonth() + 1);
   UpdateCalendar();
 })
 

@@ -3,67 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Form</title>
+    <link rel="icon" href="assets/img/restaurant/Abu Dardiri Hall.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Login</title>
+    <link rel="stylesheet" href="assets/css/form_peminjaman.css">
+    <link rel="stylesheet" href="assets/vendor/aos/aos.css">
+
 </head>
 <body>
-    <div class="container" id="container">
+    <div class="container" id="container" data-aos="fade-up" data-aos-delay="500">
+        
+        <!-- Formulir Peminjaman Internal -->
         <div class="form-container sign-up">
             <form>
-                <h1>Create Account</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon">
-                        <i class="fa-brands fa-google"></i></a>
-                    <a href="#" class="icon">
-                        <i class="fa-brands fa-facebook"></i></a>
-                    <a href="#" class="icon">
-                        <i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon">
-                        <i class="fa-brands fa-linkedin-in"></i></a>
+
+                <h1>Form Peminjaman Internal</h1>
+                
+                <!-- STEP 1: DATA PEMINJAM -->
+                <div class="form-step active" data-step="1">
+                    <h2 class="section-title">Data Peminjam</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nama_internal">Nama Lengkap *</label>
+                            <input type="text" id="nama_internal" name="nama_internal" placeholder="Masukkan nama lengkap" required>
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="instansi_internal">Asal Instansi</label>
+                            <input type="text" id="instansi_internal" name="instansi_internal" placeholder="PDM / PCM / Ortom / Sekolah">
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="wa_internal">No. WhatsApp *</label>
+                            <input type="tel" inputmode="numeric" pattern="^[0-9]{10,15}$" title="Hanya boleh angka, 10–15 digit" id="wa_internal" name="wa_internal" placeholder="Contoh: 08xxxxxxxxxx" required>
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="email_internal">Email Aktif *</label>
+                            <input type="email" id="email_internal" name="email_internal" placeholder="Masukkan email aktif" required>
+                        </div>
+                    </div>
+                    <div class="form-navigation">
+                        <button type="button" class="next-step">Selanjutnya</button>
+                    </div>
                 </div>
-                <span>or use your email for registration</span>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Sign Up</button>
+                
+                
+                <!-- STEP 2: DATA ACARA -->
+                <div class="form-step" data-step="2">
+                    <h2>Data Acara</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nama_acara_internal">Nama Kegiatan *</label>
+                            <input type="text" id="nama_acara_internal" name="nama_acara_internal" placeholder="Nama Kegiatan"
+                                required>
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="tanggal_acara_internal">Tanggal Kegiatan *</label>
+                            <input type="date" id="tanggal_acara_internal" name="tanggal_acara_internal"
+                                placeholder="Tanggal Kegiatan" required>
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="jam_mulai_internal">Jam Mulai *</label>
+                            <input type="time" id="jam_mulai_internal" name="jam_mulai_internal" placeholder="Jam Mulai" required>
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="jam_selesai_internal">Jam Selesai *</label>
+                            <input type="time" id="jam_selesai_internal" name="jam_selesai_internal" placeholder="Jam Selesai"
+                                required>
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="jumlah_peserta_internal">Jumlah Peserta *</label>
+                            <input type="number" id="jumlah_peserta_internal" name="jumlah_peserta_internal"
+                                placeholder="Perkiraan Jumlah Peserta" min="1">
+                        </div>
+                
+                        <div class="form-navigation">
+                            <button type="button" class="prev-step">Kembali</button>
+                            <button type="button" class="next-step">Selanjutnya</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- STEP 3: DATA PENDUKUNG -->
+                <div class="form-step" data-step="3">
+                    <h2>Data Pendukung</h2>
+                    <div class="form-grid">
+                        <div class="form-group form-group-full" id="dokumen_internal">
+                            <label for="surat_peminjaman">Upload Surat Peminjaman (PDF/JPG) *</label>
+                            <input type="file" id="surat_peminjaman" name="surat_peminjaman" accept=".pdf,.jpg,.jpeg,.png">
+                            <small>Surat ditandatangani pimpinan/penanggung jawab organisasi.</small>
+                        </div>
+                
+                        <div class="form-navigation">
+                            <button type="button" class="prev-step">Kembali</button>
+                            <button type="submit" class="submit-btn" disabled>Ajukan Peminjaman</button>
+                        </div>
+                    </div>
+                </div>
+
             </form>
         </div>
+
+        <!-- Formulir Peminjaman Eksternal -->
         <div class="form-container sign-in">
             <form>
-                <h1>Sign In</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon">
-                        <i class="fa-brands fa-google"></i></a>
-                    <a href="#" class="icon">
-                        <i class="fa-brands fa-facebook"></i></a>
-                    <a href="#" class="icon">
-                        <i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon">
-                        <i class="fa-brands fa-linkedin-in"></i></a>
+                <h1>Form Peminjaman Eksternal</h1>
+
+                <!-- STEP 1: DATA PEMINJAM -->
+                <div class="form-step active" data-step="1">
+                    <h2 class="section-title">Data Peminjam</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nama_eksternal">Nama Lengkap *</label>
+                            <input type="text" id="nama_eksternal" name="nama_eksternal" placeholder="Masukkan nama lengkap" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="instansi_eksternal">Nama Instansi / Komunitas</label>
+                            <input type="text" id="instansi_eksternal" name="instansi_eksternal" placeholder="Opsional untuk individu">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="wa_eksternal">No. WhatsApp *</label>
+                            <input type="tel" inputmode="numeric" pattern="^[0-9]{10,15}$" title="Hanya boleh angka, 10–15 digit" id="wa_eksternal" name="wa_eksternal" placeholder="Contoh: 08xxxxxxxxxx" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email_eksternal">Email Aktif *</label>
+                            <input type="email" id="email_eksternal" name="email_eksternal" placeholder="Masukkan email aktif" required>
+                        </div>
+
+                        <div class="form-group form-group-full">
+                            <label for="alamat_eksternal">Alamat / Domisili</label>
+                            <textarea id="alamat_eksternal" name="alamat_eksternal" rows="2" placeholder="Tuliskan alamat atau domisili singkat" autocomplete="street-address"></textarea>
+                        </div>
+
+                        <div class="form-group form-group-full">
+                            <label for="kategori_eksternal">Kategori Peminjaman *</label>
+                            <select id="kategori_eksternal" name="kategori_eksternal" required>
+                                <option value="" disabled selected>Pilih kategori</option>
+                                <option value="pengajian">Pengajian</option>
+                                <option value="seminar">Seminar</option>
+                                <option value="rapat">Rapat</option>
+                                <option value="pernikahan">Pernikahan</option>
+                                <option value="pelatihan">Pelatihan</option>
+                                <option value="lainnya">Lainnya</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-navigation">
+                        <button type="button" class="next-step">Selanjutnya</button>
+                    </div>
                 </div>
-                <span>or use your email and password</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <a href="#">Forget your password?</a>
-                <button>Sign In</button>
+
+
+                <!-- STEP 2: DATA ACARA -->
+                <div class="form-step" data-step="2">
+                    <h2>Data Acara</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nama_acara_eksternal">Nama Kegiatan *</label>
+                            <input type="text" id="nama_acara_eksternal" name="nama_acara_eksternal" placeholder="Nama Kegiatan" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tanggal_acara_eksternal">Tanggal Kegiatan *</label>
+                            <input type="date" id="tanggal_acara_eksternal" name="tanggal_acara_eksternal" placeholder="Tanggal Kegiatan" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jam_mulai_eksternal">Jam Mulai *</label>
+                            <input type="time" id="jam_mulai_eksternal" name="jam_mulai_eksternal" placeholder="Jam Mulai" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jam_selesai_eksternal">Jam Selesai *</label>
+                            <input type="time" id="jam_selesai_eksternal" name="jam_selesai_eksternal" placeholder="Jam Selesai" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="jumlah_peserta_eksternal">Jumlah Peserta *</label>
+                            <input type="number" id="jumlah_peserta_eksternal" name="jumlah_peserta_eksternal" placeholder="Perkiraan Jumlah Peserta" min="1">
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="prev-step">Kembali</button>
+                            <button type="button" class="next-step">Selanjutnya</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 3: DATA PENDUKUNG -->
+                <div class="form-step" data-step="3">
+                    <h2>Data Pendukung</h2>
+                    <div class="form-grid">
+                        <div class="form-group form-group-full" id="dokumen_eksternal">
+                            <label for="ktp">Upload KTP Penanggung Jawab (JPG/PNG/PDF) *</label>
+                            <input type="file" id="ktp" name="ktp" accept=".pdf,.jpg,.jpeg,.png">
+                            <small>Pastikan KTP terbaca jelas.</small>
+                        </div>
+                    
+                        <div class="form-navigation">
+                            <button type="button" class="prev-step">Kembali</button>
+                            <button type="submit" class="submit-btn" disabled>Ajukan Peminjaman</button>
+                        </div>
+                    </div>
+                </div>
+                
             </form>
         </div>
+
+        <!-- Toggle-Container -->
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
-                    <h1>Welcome Back!</h1>
-                    <p>Enter your personal details to use all the site features</p>
-                    <button class="hidden" id="login">Sign In</button>
+                    <h1>Peminjaman Eksternal</h1>
+                    <p>Untuk masyarakat umum/instansi di luar Pimpinan Muhammadiyah Banyumas</p>
+                    <button class="hidden" id="login">Formulir Eksternal</button>
                 </div>
                 <div class="toggle-panel toggle-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Register with your personal details to use all the site features</p>
-                    <button class="hidden" id="register">Sign Up</button>
+                    <h1>Peminjaman Internal</h1>
+                    <p>Khusus untuk Pimpinan, Organisasi Otonom, atau Amal Usaha Muhammadiyah</p>
+                    <button class="hidden" id="register">Formulir Internal</button>
                 </div>
             </div>
         </div>
-    </div>   
-    <script src="scripts.js"></script>
+
+    </div>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+    
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/form_peminjaman.js"></script>
+    
 </body>
 </html>
