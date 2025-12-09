@@ -21,12 +21,12 @@
 }
 
 .button--primary {
-  background-color: var(--color-blue-600);
+  background-color: var(--color-orange-600);
   color: var(--color-text-light);
 }
 
 .button--primary:hover {
-  background-color: var(--color-blue-500);
+  background-color: var(--color-orange-500);
 }
 
 .button--danger {

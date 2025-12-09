@@ -26,21 +26,6 @@
   --nav-dropdown-hover-color: #f68f28; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
-
-.light-background {
-  --background-color: #fff9f7;
-  --surface-color: #ffffff;
-}
-
-.dark-background {
-  --background-color: #060606;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
-  --surface-color: #252525;
-  --contrast-color: #ffffff;
-}
-
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
@@ -63,16 +48,6 @@ a {
 a:hover {
   color: color-mix(in srgb, var(--accent-color), transparent 25%);
   text-decoration: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--heading-color);
-  font-family: var(--heading-font);
 }
 
 /*------------------------------
@@ -948,7 +923,7 @@ section,
   align-items: center;
   overflow: hidden;
   position: relative;
-  padding: 100px 0;
+  padding: 50px 0;
 }
 
 .hero .hero-content {
@@ -1133,6 +1108,7 @@ section,
 .about {
   background-color: var(--surface-color);
   position: relative;
+  padding-top: 0px;
 }
 
 .about .about-image {
@@ -2006,87 +1982,26 @@ section,
   }
 }
 
-/* Calendar */
-.calendar {
-  width: 380px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+/*--------------------------------------------------------------
+# Calendar
+--------------------------------------------------------------*/
+.reservation-calendar h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2; margin-bottom: 1.5rem;
 }
 
-.calendar .calendar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
+.reservation-calendar p {
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
 }
 
-.calendar .monthYear {
-  text-align: center;
-  font-weight: 600;
-  width: 150px;
-}
-
-.calendar .header button {
-  display: flex;
-  align-items: center;
+.reservation-calendar .calendar-wrapper {
+  position: relative;
   justify-content: center;
-  border: none;
-  border-radius: 50%;
-  background: #fff;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-}
-
-.calendar .days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-}
-
-.calendar .day {
-  text-align: center;
-  padding: 5px;
-  color: #999fa6;
-  font-weight: 500;
-}
-
-.calendar .dates {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
-}
-
-.calendar .date {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
-  margin: auto;
-  cursor: pointer;font-weight: 600;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  transition: 0.2s;
-}
-
-.calendar .date:hover, .date.active {
-  background: var(--accent-color);
-  color: #fff;
-}
-
-.calendar .date.inactive {
-  color: #d2d2d2;
-}
-
-.calendar .date.inactive:hover {
-  color: #fff;
+  display: flex;
 }
 
 /*--------------------------------------------------------------

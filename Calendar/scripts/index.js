@@ -14,18 +14,25 @@ import { initResponsive } from "./responsive.js";
 import { initUrl } from "./url.js";
 import { initSync } from "./sync.js";
 
+const params = new URLSearchParams(window.location.search);
+const isReadonly = params.get("readonly") === "1";
+
 const eventStore = initEventStore();
 initCalendar(eventStore);
-initEventCreateButtons();
-initEventDeleteDialog();
-initEventDetailsDialog();
-initEventFormDialog();
+
+if (!isReadonly) {
+  initEventCreateButtons();
+  initEventDeleteDialog();
+  initEventDetailsDialog();
+  initEventFormDialog();
+  initNotifications();
+  initSync();
+}
+
 initHamburger();
 initMiniCalendars();
 initMobileSidebar();
 initNav();
-initNotifications();
 initViewSelect();
 initUrl();
 initResponsive();
-initSync();

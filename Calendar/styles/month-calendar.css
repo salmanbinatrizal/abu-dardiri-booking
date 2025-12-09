@@ -53,7 +53,12 @@
 }
 
 .month-calendar__day--highlight {
-  background-color: var(--color-blue-50);
+  background-color: var(--color-orange-50);
+}
+
+.month-calendar__day--other .month-calendar__day-label {
+  color: var(--color-gray-500);
+  opacity: 0.7;
 }
 
 .month-calendar__day:nth-child(7n) {

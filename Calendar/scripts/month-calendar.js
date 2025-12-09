@@ -26,13 +26,13 @@ export function initMonthCalendar(parent, selectedDate, eventStore) {
     const events = eventStore.getEventsByDate(calendarDay);
     sortCalendarDayEvents(events);
 
-    initCalendarDay(calendarDayListElement, calendarDay, events);
+    initCalendarDay(calendarDayListElement, calendarDay, events, selectedDate);
   }
 
   parent.appendChild(calendarElement);
 }
 
-function initCalendarDay(parent, calendarDay, events) {
+function initCalendarDay(parent, calendarDay, events, selectedDate) {
   const calendarDayContent = calendarDayTemplateElement.content.cloneNode(true);
   const calendarDayElemenent = calendarDayContent.querySelector("[data-month-calendar-day]");
   const calendarDayLabelElemenent = calendarDayContent.querySelector("[data-month-calendar-day-label]");
@@ -43,6 +43,10 @@ function initCalendarDay(parent, calendarDay, events) {
   }
 
   calendarDayLabelElemenent.textContent = calendarDay.getDate();
+
+  if (calendarDay.getMonth() !== selectedDate.getMonth()) {
+    calendarDayElemenent.classList.add("month-calendar__day--other");
+  }
 
   calendarDayLabelElemenent.addEventListener("click", () => {
     document.dispatchEvent(new CustomEvent("date-change", {

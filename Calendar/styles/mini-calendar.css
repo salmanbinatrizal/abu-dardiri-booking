@@ -61,5 +61,5 @@
 }
 
 .mini-calendar__day--highlight {
-  border-color: var(--color-blue-600);
+  border-color: var(--color-orange-600);
 }

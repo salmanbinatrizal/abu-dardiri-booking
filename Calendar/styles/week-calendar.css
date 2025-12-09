@@ -50,11 +50,11 @@
 }
 
 .week-calendar__day-of-week-button--highlight .week-calendar__day-of-week-number {
-  border-color: var(--color-blue-600);
+  border-color: var(--color-orange-600);
 }
 
 .week-calendar__day-of-week-button--selected .week-calendar__day-of-week-number {
-  background-color: var(--color-blue-600);
+  background-color: var(--color-orange-600);
   color: var(--color-text-light);
 }
 
@@ -139,7 +139,7 @@
   }
 
   .week-calendar__day-of-week-button--highlight {
-    border-color: var(--color-blue-600);
+    border-color: var(--color-orange-600);
   }
 
   .week-calendar__day-of-week-number {
